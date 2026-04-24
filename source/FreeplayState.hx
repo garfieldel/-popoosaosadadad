@@ -145,6 +145,10 @@ class FreeplayState extends MusicBeatState
 			trace(md);
 		 */
 
+		#if mobile
+		addVirtualPad(FULL,A_B);
+		#end
+
 		super.create();
 	}
 
@@ -188,28 +192,28 @@ class FreeplayState extends MusicBeatState
 		var downP = controls.DOWN_P;
 		var accepted = controls.ACCEPT;
 
-		if (upP)
+		if (upP #if mobile || virtualPad.buttonUp.justPressed #end)
 		{
 			changeSelection(-1);
 		}
-		if (downP)
+		if (downP #if mobile || virtualPad.buttonDown.justPressed #end)
 		{
 			changeSelection(1);
 		}
 
 		if(!(songs[curSelected].songName.toLowerCase()=="termination")){	//Only allow the difficulty to be changed if the song isn't termination.
-		if (controls.LEFT_P)
+		if (controls.LEFT_P #if mobile || virtualPad.buttonLeft.justPressed #end)
 			changeDiff(-1);
-		if (controls.RIGHT_P)
+		if (controls.RIGHT_P #if mobile || virtualPad.buttonRight.justPressed #end)
 			changeDiff(1);
 		}
 
-		if (controls.BACK)
+		if (controls.BACK #if mobile || virtualPad.buttonB.justPressed #end)
 		{
 			FlxG.switchState(new MainMenuState());
 		}
 
-		if (accepted)
+		if (accepted #if mobile || virtualPad.buttonA.justPressed #end)
 		{
 			if((songs[curSelected].songName.toLowerCase()=='termination') && !(FlxG.save.data.terminationUnlocked)){
 				trace("lmao, access denied idiot!");
