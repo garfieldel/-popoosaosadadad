@@ -1,4 +1,4 @@
-package;
+package mobile;
 
 import flash.display.BitmapData;
 import flash.display.Shape;
