@@ -12,7 +12,6 @@ import flixel.addons.transition.FlxTransitionableState;
 import flixel.addons.ui.FlxUIState;
 import flixel.math.FlxRect;
 import flixel.util.FlxTimer;
-import flixel.FlxCamera;
 
 class MusicBeatState extends FlxUIState
 {
@@ -23,18 +22,15 @@ class MusicBeatState extends FlxUIState
 	private var curBeat:Int = 0;
 	private var controls(get, never):Controls;
 
-	var hitbox:FlxHitbox;
+	var hitbox:Hitbox;
 
 	public function addHitbox() {
-        hitbox = new FlxHitbox();
-
-		var camControl = new FlxCamera();
-		FlxG.cameras.add(camControl);
-		camControl.bgColor.alpha = 0;
-		hitbox.cameras = [camControl];
-
+        hitbox = new Hitbox();
+		var camStill = new flixel.FlxCamera();
+		FlxG.cameras.add(camStill);
+		camStill.bgColor.alpha = 0;
+		hitbox.cameras = [camStill];
 		hitbox.visible = false;
-
 		add(hitbox);
 	}
 
