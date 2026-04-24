@@ -39,7 +39,7 @@ class MusicBeatState extends FlxUIState
         hitbox = new Hitbox();
 		hitbox.cameras = [camStill];
 		hitbox.visible = false;
-		add(Hitbox);
+		add(hitbox);
 	}
 	public function addVirtualPad(?DPad:FlxDPadMode, ?Action:FlxActionMode) {
 		camStill = new FlxCamera();
