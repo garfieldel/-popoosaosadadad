@@ -253,9 +253,8 @@ class PlayState extends MusicBeatState
 
 	private var executeModchart = false;
 
-	var hitbox:FlxHitbox;
 	// LUA SHIT
-	
+
 	#if cpp
 
 	public static var lua:State = null;
@@ -1777,8 +1776,7 @@ class PlayState extends MusicBeatState
 		if (loadRep)
 			replayTxt.cameras = [camHUD];
 
-		hitbox = new FlxHitbox();
-		add(hitbox);
+		addHitbox();
 		// if (SONG.song == 'South')
 		// FlxG.camera.alpha = 0.7;
 		// UI_camera.zoom = 1;
