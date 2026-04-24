@@ -8,7 +8,7 @@ import flixel.ui.FlxButton;
 
 class Hitbox extends FlxSpriteGroup
 {
-  public var buttonLeft:FlxButton = new FlxButton(0, 0);
+	public var buttonLeft:FlxButton = new FlxButton(0, 0);
 	public var buttonDown:FlxButton = new FlxButton(0, 0);
 	public var buttonUp:FlxButton = new FlxButton(0, 0);
 	public var buttonRight:FlxButton = new FlxButton(0, 0);
