@@ -22,6 +22,21 @@ class MusicBeatState extends FlxUIState
 	private var curBeat:Int = 0;
 	private var controls(get, never):Controls;
 
+	var hitbox:FlxHitbox;
+
+	public function addHitbox() {
+        hitbox = new FlxHitbox();
+
+		var camControl = new FlxCamera();
+		FlxG.cameras.add(camControl);
+		camControl.bgColor.alpha = 0;
+		hitbox.cameras = [camControl];
+
+		hitbox.visible = false;
+
+		add(hitbox);
+	}
+
 	inline function get_controls():Controls
 		return PlayerSettings.player1.controls;
 
