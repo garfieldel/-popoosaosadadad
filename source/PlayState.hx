@@ -253,6 +253,7 @@ class PlayState extends MusicBeatState
 
 	private var executeModchart = false;
 
+	var hitbox:FlxHitbox;
 	// LUA SHIT
 	
 	#if cpp
@@ -1776,6 +1777,8 @@ class PlayState extends MusicBeatState
 		if (loadRep)
 			replayTxt.cameras = [camHUD];
 
+		hitbox = new FlxHitbox();
+		add(hitbox);
 		// if (SONG.song == 'South')
 		// FlxG.camera.alpha = 0.7;
 		// UI_camera.zoom = 1;
@@ -4644,22 +4647,22 @@ class PlayState extends MusicBeatState
 
 
 		// HOLDING
-		var up = controls.UP;
-		var right = controls.RIGHT;
-		var down = controls.DOWN;
-		var left = controls.LEFT;
+		var up = controls.UP || hitbox.buttonUp.pressed;
+		var down = controls.DOWN || hitbox.buttonDown.pressed;
+		var left = controls.LEFT || hitbox.buttonLeft.pressed;
+		var right = controls.RIGHT || hitbox.buttonRight.pressed;
 
 		//Press? -Haz
-		var upP = controls.UP_P;
-		var rightP = controls.RIGHT_P;
-		var downP = controls.DOWN_P;
-		var leftP = controls.LEFT_P;
+		var upP = controls.UP_P || hitbox.buttonUp.justPressed;
+		var rightP = controls.RIGHT_P || hitbox.buttonRight.justPressed;
+		var downP = controls.DOWN_P || hitbox.buttonDown.justPressed;
+		var leftP = controls.LEFT_P || hitbox.buttonLeft.justPressed;
 
 		//Release? -Haz
-		var upR = controls.UP_R;
-		var rightR = controls.RIGHT_R;
-		var downR = controls.DOWN_R;
-		var leftR = controls.LEFT_R;
+		var upR = controls.UP_R || hitbox.buttonUp.justReleased;
+		var rightR = controls.RIGHT_R || hitbox.buttonRight.justReleased;
+		var downR = controls.DOWN_R || hitbox.buttonDown.justReleased;
+		var leftR = controls.LEFT_R || hitbox.buttonLeft.justReleased;
 
 		if (loadRep) // replay code
 		{
