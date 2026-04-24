@@ -12,6 +12,7 @@ import flixel.addons.transition.FlxTransitionableState;
 import flixel.addons.ui.FlxUIState;
 import flixel.math.FlxRect;
 import flixel.util.FlxTimer;
+import flixel.FlxCamera;
 #if mobile
 import mobile.Hitbox;
 import mobile.VirtualPad;
@@ -28,17 +29,22 @@ class MusicBeatState extends FlxUIState
 
 	#if mobile
 	var hitbox:Hitbox;
-	var camStill = new flixel.FlxCamera();
-	FlxG.cameras.add(camStill);
-	camStill.bgColor.alpha = 0;
+	var virtualPad:VirtualPad;
+	var camStill:FlxCamera;
 
 	public function addHitbox() {
+		camStill = new FlxCamera();
+		FlxG.cameras.add(camStill);
+		camStill.bgColor.alpha = 0;
         hitbox = new Hitbox();
 		hitbox.cameras = [camStill];
 		hitbox.visible = false;
 		add(Hitbox);
 	}
 	public function addVirtualPad(?DPad:FlxDPadMode, ?Action:FlxActionMode) {
+		camStill = new FlxCamera();
+		FlxG.cameras.add(camStill);
+		camStill.bgColor.alpha = 0;
 		virtualPad = new VirtualPad(DPad, Action);
 		virtualPad.cameras = [camStill];
 		add(virtualPad);
