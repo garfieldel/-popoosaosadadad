@@ -4,6 +4,7 @@ import flash.display.BitmapData;
 import flash.display.Shape;
 import flixel.FlxG;
 import flixel.group.FlxSpriteGroup;
+import flixel.ui.FlxButton;
 
 class FlxHitbox extends FlxSpriteGroup
 {
