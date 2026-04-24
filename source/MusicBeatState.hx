@@ -13,7 +13,7 @@ import flixel.addons.ui.FlxUIState;
 import flixel.math.FlxRect;
 import flixel.util.FlxTimer;
 #if mobile
-import mobile.*;
+import mobile.Hitbox;
 #end
 
 class MusicBeatState extends FlxUIState
