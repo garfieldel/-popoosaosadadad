@@ -55,7 +55,7 @@ class Hitbox extends FlxSpriteGroup
 		hint.solid = false;
 		hint.immovable = true;
 		hint.scrollFactor.set();
-		hint.alpha = 0.00001;
+		hint.alpha = 0;
 		hint.onDown.callback = function()
 		{
 			if (hint.alpha != 0.2)
@@ -63,8 +63,8 @@ class Hitbox extends FlxSpriteGroup
 		}
 		hint.onUp.callback = function()
 		{
-			if (hint.alpha != 0.00001)
-				hint.alpha = 0.00001;
+			if (hint.alpha != 0)
+				hint.alpha = 0;
 		}
 		hint.onOut.callback = hint.onUp.callback;
 		hint.onOver.callback = hint.onDown.callback;
