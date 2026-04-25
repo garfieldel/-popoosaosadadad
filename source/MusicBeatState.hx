@@ -46,16 +46,14 @@ class MusicBeatState extends FlxUIState
 		FlxG.cameras.add(camStill);
 		camStill.bgColor.alpha = 0;
 		virtualPad = new VirtualPad(DPad, Action);
-		virtualPad.alpha = 0.8;
 		virtualPad.cameras = [camStill];
 		add(virtualPad);
 	}
-	public function addDodgeButton(?DPad:FlxDPadMode, ?Action:FlxActionMode) {
+	public function addDodgeButton() {
 		camStill = new FlxCamera();
 		FlxG.cameras.add(camStill);
 		camStill.bgColor.alpha = 0;
 		dodgeButton = new VirtualPad(NONE, A);
-		dodgeButton.alpha = 0.8;
 	    dodgeButton.cameras = [camStill];
 		add(dodgeButton);
 	}
