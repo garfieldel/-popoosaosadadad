@@ -1777,7 +1777,6 @@ class PlayState extends MusicBeatState
 			replayTxt.cameras = [camHUD];
 
 		addHitbox();
-		hitbox.visible = true;
 
 		// if (SONG.song == 'South')
 		// FlxG.camera.alpha = 0.7;
@@ -4613,6 +4612,7 @@ class PlayState extends MusicBeatState
 
 			if(FlxG.keys.justPressed.SPACE && !bfDodging && bfCanDodge){
 				trace('DODGE START!');
+				addDodgeButton();
 				bfDodging = true;
 				bfCanDodge = false;
 
