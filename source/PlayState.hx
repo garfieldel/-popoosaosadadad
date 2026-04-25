@@ -1776,7 +1776,7 @@ class PlayState extends MusicBeatState
 		if (loadRep)
 			replayTxt.cameras = [camHUD];
 
-		addHitbox();
+		addHitboxDodge();
 
 		// if (SONG.song == 'South')
 		// FlxG.camera.alpha = 0.7;
@@ -4606,9 +4606,7 @@ class PlayState extends MusicBeatState
 		if(SONG.song.toLowerCase() == "termination" || SONG.song.toLowerCase()=='tutorial'){
 			//Dodge code, yes it's bad but oh well. -Haz
 			//var dodgeButton = controls.ACCEPT; //I have no idea how to add custom controls so fuck it. -Haz
-			#if mobile
-			addVirtualPad(NONE, A);
-			#end
+			dodgeButton.visible = true;
 
 			if(FlxG.keys.justPressed.SPACE #if mobile || virtualPad.buttonA.justPressed #end)
 				trace('butttonpressed');
