@@ -4606,13 +4606,15 @@ class PlayState extends MusicBeatState
 		if(SONG.song.toLowerCase() == "termination" || SONG.song.toLowerCase()=='tutorial'){
 			//Dodge code, yes it's bad but oh well. -Haz
 			//var dodgeButton = controls.ACCEPT; //I have no idea how to add custom controls so fuck it. -Haz
+			#if mobile
+			addVirtualPad(NONE, A);
+			#end
 
-			if(FlxG.keys.justPressed.SPACE)
+			if(FlxG.keys.justPressed.SPACE #if mobile || virtualPad.buttonA.justPressed #end)
 				trace('butttonpressed');
 
-			if(FlxG.keys.justPressed.SPACE && !bfDodging && bfCanDodge){
+			if(FlxG.keys.justPressed.SPACE #if mobile || virtualPad.buttonA.justPressed #end && !bfDodging && bfCanDodge){
 				trace('DODGE START!');
-				addDodgeButton();
 				bfDodging = true;
 				bfCanDodge = false;
 
