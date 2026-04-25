@@ -44,7 +44,6 @@ class OptionsMenu extends MusicBeatState
 		new OptionCatagory("Misc", [
 			#if (desktop || mobile)
 			new FPSOption("Toggle the FPS Counter"),
-			new ReplayOption("View replays"),
 			#end
 			new WatermarkOption("Turn off all watermarks from the engine."),
 			new QTOptimiseOption("Disables some visual elements to help performance in 3rd and 4th song.")
