@@ -30,6 +30,7 @@ class MusicBeatState extends FlxUIState
 	#if mobile
 	var hitbox:Hitbox;
 	var virtualPad:VirtualPad;
+	var dodgeButton:VirtualPad;
 	var camStill:FlxCamera;
 
 	public function addHitbox() {
