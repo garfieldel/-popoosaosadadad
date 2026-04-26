@@ -133,11 +133,6 @@ class StoryMenuState extends MusicBeatState
 				lock.antialiasing = true;
 				grpLocks.add(lock);
 			}
-			if (curWeek == 1) {
-				weekThing.targetY = 7;
-			} else {
-				weekThing.targetY = i;
-			}
 		}
 
 		trace("Line 96");
