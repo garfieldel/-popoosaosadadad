@@ -4610,10 +4610,10 @@ class PlayState extends MusicBeatState
 			dodgeButton.visible = true;
 			#end
 
-			if(FlxG.keys.justPressed.SPACE #if mobile || dodgeButton.buttonA.justPressed #end)
+			if(FlxG.keys.justPressed.SPACE #if mobile || dodgeButton.buttonD.justPressed #end)
 				trace('butttonpressed');
 
-			if(FlxG.keys.justPressed.SPACE #if mobile || dodgeButton.buttonA.justPressed #end && !bfDodging && bfCanDodge){
+			if(FlxG.keys.justPressed.SPACE #if mobile || dodgeButton.buttonD.justPressed #end && !bfDodging && bfCanDodge){
 				trace('DODGE START!');
 				bfDodging = true;
 				bfCanDodge = false;
