@@ -149,7 +149,7 @@ class TitleState extends MusicBeatState
 			// FlxG.sound.list.add(music);
 			// music.play();
 			FlxG.sound.playMusic(Paths.music('qtMenu'), 0);
-			FlxG.sound.music.fadeIn(1, 0, 0.725);
+			FlxG.sound.music.fadeIn(4, 0, 0.7);
 		}
 
 		Conductor.changeBPM(128);
