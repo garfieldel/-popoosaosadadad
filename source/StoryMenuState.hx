@@ -137,6 +137,7 @@ class StoryMenuState extends MusicBeatState
 				weekThing.i = 7;
 			} else {
 				weekThing.i = curWeek;
+			}
 		}
 
 		trace("Line 96");
