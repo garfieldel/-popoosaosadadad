@@ -50,8 +50,6 @@ class StoryMenuState extends MusicBeatState
 
 	var txtWeekTitle:FlxText;
 
-	var curWeekIcon:Int = 0;
-
 	var curWeek:Int = 0;
 
 	var txtTracklist:FlxText;
@@ -115,7 +113,7 @@ class StoryMenuState extends MusicBeatState
 
 		for (i in 0...weekData.length)
 		{
-			var weekThing:MenuItem = new MenuItem(0, yellowBG.y + yellowBG.height + 10, curWeekIcon);
+			var weekThing:MenuItem = new MenuItem(0, yellowBG.y + yellowBG.height + 10, i);
 			weekThing.y += ((weekThing.height + 20) * i);
 			weekThing.targetY = i;
 			grpWeekText.add(weekThing);
@@ -136,9 +134,9 @@ class StoryMenuState extends MusicBeatState
 				grpLocks.add(lock);
 			}
 			if (curWeek == 1) {
-				curWeekIcon = 7;
+				lock.ID = 7;
 			} else {
-				curWeekIcon = 1;
+				lock.ID = i;
 			}
 		}
 
