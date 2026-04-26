@@ -371,24 +371,23 @@ class StoryMenuState extends MusicBeatState
 
 	function changeWeek(change:Int = 0):Void
     {
-	curWeek = 7;
+		curWeek = 7;
 
-    var bullShit:Int = 0;
+		var bullShit:Int = 0;
 
-    for (item in grpWeekText.members)
-    {
-        item.targetY = bullShit - curWeek;
+		for (item in grpWeekText.members)
+		{
+			item.targetY = bullShit - curWeek;
 
-        // Solo la week 7 visible
-        if (item.ID == 7)
-            item.alpha = 1;
-        else
-            item.alpha = 0;
+			if (item.ID == 7)
+				item.alpha = 1;
+			else
+				item.alpha = 0;
 
-        bullShit++;
-    }
+			bullShit++;
+		}
 
-    updateText();
+		updateText();
     }
 
 	function updateText()
