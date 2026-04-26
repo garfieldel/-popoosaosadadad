@@ -37,7 +37,7 @@ class MusicBeatState extends FlxUIState
 		camStill = new FlxCamera();
 		FlxG.cameras.add(camStill);
 		camStill.bgColor.alpha = 0;
-		dodgeButton = new VirtualPad(NONE, A);
+		dodgeButton = new VirtualPad(NONE, D);
 	    dodgeButton.cameras = [camStill];
         hitbox = new Hitbox();
 		hitbox.cameras = [camStill];
