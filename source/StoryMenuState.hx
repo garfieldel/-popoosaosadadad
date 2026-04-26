@@ -134,9 +134,9 @@ class StoryMenuState extends MusicBeatState
 				grpLocks.add(lock);
 			}
 			if (curWeek == 1) {
-				lock.ID = 7;
+				weekThing.targetY = 7;
 			} else {
-				lock.ID = i;
+				weekThing.targetY = i;
 			}
 		}
 
