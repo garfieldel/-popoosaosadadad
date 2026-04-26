@@ -124,8 +124,6 @@ class StoryMenuState extends MusicBeatState
 			weekThing.antialiasing = true;
 			// weekThing.updateHitbox();
 
-			curWeekIcon = curWeek;
-
 			// Needs an offset thingie
 			if (!weekUnlocked[i])
 			{
@@ -140,7 +138,7 @@ class StoryMenuState extends MusicBeatState
 			if (curWeek == 1) {
 				curWeekIcon = 7;
 			} else {
-				curWeekIcon = curWeek;
+				curWeekIcon = 1;
 			}
 		}
 
