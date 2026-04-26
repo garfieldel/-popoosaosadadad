@@ -25,12 +25,6 @@ class StoryMenuState extends MusicBeatState
 
 	var weekData:Array<Dynamic> = [
 		['Tutorial'],
-		['Bopeebo', 'Fresh', 'Dadbattle'],
-		['Spookeez', 'South', "Monster"],
-		['Pico', 'Philly', "Blammed"],
-		['Satin-Panties', "High", "Milf"],
-		['Cocoa', 'Eggnog', 'Winter-Horrorland'],
-		['Senpai', 'Roses', 'Thorns'],
 		['Carefree', 'Careless', 'Censory-Overload','Terminate']
 	];
 	//I HAVE NO IDEA WHY THE FUCK THE LAST ITEM IN THE ARRAY JUST DOESN'T WANT TO BE DISPLAYED, SO FUCK YOU I'M DOING THIS DISGUSTING SHIT TO COUNTER IT UNTIL IT'S FIXED
@@ -38,37 +32,19 @@ class StoryMenuState extends MusicBeatState
 	//Actually, this solution ain't so bad. I can hide the 4th song to be a surprise :3
 	var weekDataSTRING:Array<Dynamic> = [
 		['Tutorial',""],
-		['Bopeebo', 'Fresh', 'Dadbattle',""],
-		['Spookeez', 'South', "Monster",""],
-		['Pico', 'Philly', "Blammed",""],
-		['Satin-Panties', "High", "Milf",""],
-		['Cocoa', 'Eggnog', 'Winter-Horrorland',""],
-		['Senpai', 'Roses', 'Thorns',""],
 		['Carefree', 'Careless', 'Censory-Overload',""]
 	];
 	var curDifficulty:Int = 1;
 
-	public static var weekUnlocked:Array<Bool> = [true, true, true, true, true, true, true, true];
+	public static var weekUnlocked:Array<Bool> = [true, true];
 
 	var weekCharacters:Array<Dynamic> = [
 		['', 'bf', 'gf'],
-		['dad', 'bf', 'gf'],
-		['spooky', 'bf', 'gf'],
-		['pico', 'bf', 'gf'],
-		['mom', 'bf', 'gf'],
-		['parents-christmas', 'bf', 'gf'],
-		['senpai', 'bf', 'gf'],
 		['qt', 'bf', 'gf']
 	];
 
 	var weekNames:Array<String> = [
 		"How to Funk",
-		"Daddy Dearest",
-		"Spooky Month",
-		"PICO",
-		"MOMMY MUST MURDER",
-		"RED SNOW",
-		"Hating Simulator ft. Moawling",
 		"Cutie"
 	];
 
@@ -157,6 +133,10 @@ class StoryMenuState extends MusicBeatState
 				lock.antialiasing = true;
 				grpLocks.add(lock);
 			}
+			if (curWeek == 1) {
+				weekThing.i = 7;
+			} else {
+				weekThing.i = curWeek;
 		}
 
 		trace("Line 96");
@@ -165,6 +145,7 @@ class StoryMenuState extends MusicBeatState
 		grpWeekCharacters.add(new MenuCharacter(450, 25, 0.9, true));
 		grpWeekCharacters.add(new MenuCharacter(850, 100, 0.5, true));
 
+	
 		difficultySelectors = new FlxGroup();
 		add(difficultySelectors);
 
@@ -320,7 +301,11 @@ class StoryMenuState extends MusicBeatState
 			PlayState.storyDifficulty = curDifficulty;
 
 			PlayState.SONG = Song.loadFromJson(PlayState.storyPlaylist[0].toLowerCase() + diffic, PlayState.storyPlaylist[0].toLowerCase());
-			PlayState.storyWeek = curWeek;
+		    if (curWeek == 1) {
+				PlayState.storyWeek = 7;
+			} else {
+				PlayState.storyWeek = curWeek;
+			{
 			PlayState.campaignScore = 0;
 			new FlxTimer().start(1, function(tmr:FlxTimer)
 			{
@@ -370,25 +355,30 @@ class StoryMenuState extends MusicBeatState
 	var intendedScore:Int = 0;
 
 	function changeWeek(change:Int = 0):Void
-    {
-		curWeek = 7;
+	{
+		curWeek += change;
+
+		if (curWeek >= weekData.length)
+			curWeek = 0;
+		if (curWeek < 0)
+			curWeek = weekData.length - 1;
 
 		var bullShit:Int = 0;
 
 		for (item in grpWeekText.members)
 		{
 			item.targetY = bullShit - curWeek;
-
-			if (item.ID == 7)
+			if (item.targetY == Std.int(0) && weekUnlocked[curWeek])
 				item.alpha = 1;
 			else
-				item.alpha = 0;
-
+				item.alpha = 0.6;
 			bullShit++;
 		}
 
+		FlxG.sound.play(Paths.sound('scrollMenu'));
+
 		updateText();
-    }
+	}
 
 	function updateText()
 	{
