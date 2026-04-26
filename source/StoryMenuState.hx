@@ -370,30 +370,26 @@ class StoryMenuState extends MusicBeatState
 	var intendedScore:Int = 0;
 
 	function changeWeek(change:Int = 0):Void
-	{
-		curWeek += change;
+    {
+	curWeek = 7;
 
-		if (curWeek >= weekData.length)
-			curWeek = 0;
-		if (curWeek < 0)
-			curWeek = weekData.length - 1;
+    var bullShit:Int = 0;
 
-		var bullShit:Int = 0;
+    for (item in grpWeekText.members)
+    {
+        item.targetY = bullShit - curWeek;
 
-		for (item in grpWeekText.members)
-		{
-			item.targetY = bullShit - curWeek;
-			if (item.targetY == Std.int(0) && weekUnlocked[curWeek])
-				item.alpha = 1;
-			else
-				item.alpha = 0.6;
-			bullShit++;
-		}
+        // Solo la week 7 visible
+        if (item.ID == 7)
+            item.alpha = 1;
+        else
+            item.alpha = 0;
 
-		FlxG.sound.play(Paths.sound('scrollMenu'));
+        bullShit++;
+    }
 
-		updateText();
-	}
+    updateText();
+    }
 
 	function updateText()
 	{
