@@ -111,9 +111,9 @@ class StoryMenuState extends MusicBeatState
 
 		trace("Line 70");
 
-		for (i in 0...weekData.length)
-{
-    var iconIndex:Int = (i == 0) ? 6 : i; // Week 1 usa icono de Week 7
+
+		for (i in 0...weekData.length) {
+    var iconIndex:Int = (i == 1) ? 7 : i; // Week 1 usa icono de Week 7
 
     var weekThing:MenuItem = new MenuItem(0, yellowBG.y + yellowBG.height + 10, iconIndex);
     weekThing.y += ((weekThing.height + 20) * i);
