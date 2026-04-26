@@ -112,28 +112,30 @@ class StoryMenuState extends MusicBeatState
 		trace("Line 70");
 
 		for (i in 0...weekData.length)
-		{
-			var weekThing:MenuItem = new MenuItem(0, yellowBG.y + yellowBG.height + 10, i);
-			weekThing.y += ((weekThing.height + 20) * i);
-			weekThing.targetY = i;
-			grpWeekText.add(weekThing);
+{
+    var iconIndex:Int = (i == 0) ? 6 : i; // Week 1 usa icono de Week 7
 
-			weekThing.screenCenter(X);
-			weekThing.antialiasing = true;
-			// weekThing.updateHitbox();
+    var weekThing:MenuItem = new MenuItem(0, yellowBG.y + yellowBG.height + 10, iconIndex);
+    weekThing.y += ((weekThing.height + 20) * i);
+    weekThing.targetY = i;
+    grpWeekText.add(weekThing);
 
-			// Needs an offset thingie
-			if (!weekUnlocked[i])
-			{
-				var lock:FlxSprite = new FlxSprite(weekThing.width + 10 + weekThing.x);
-				lock.frames = ui_tex;
-				lock.animation.addByPrefix('lock', 'lock');
-				lock.animation.play('lock');
-				lock.ID = i;
-				lock.antialiasing = true;
-				grpLocks.add(lock);
-			}
-		}
+    weekThing.screenCenter(X);
+    weekThing.antialiasing = true;
+	// weekThing.updateHitbox();
+
+	// Needs an offset thingie
+    if (!weekUnlocked[i])
+    {
+        var lock:FlxSprite = new FlxSprite(weekThing.width + 10 + weekThing.x);
+        lock.frames = ui_tex;
+        lock.animation.addByPrefix('lock', 'lock');
+        lock.animation.play('lock');
+        lock.ID = i;
+        lock.antialiasing = true;
+        grpLocks.add(lock);
+    }
+}
 
 		trace("Line 96");
 
