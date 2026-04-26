@@ -50,7 +50,7 @@ class StoryMenuState extends MusicBeatState
 
 	var txtWeekTitle:FlxText;
 
-	var curWeekIcon:Int = curWeek;
+	var curWeekIcon:Int = 0;
 
 	var curWeek:Int = 0;
 
@@ -123,6 +123,8 @@ class StoryMenuState extends MusicBeatState
 			weekThing.screenCenter(X);
 			weekThing.antialiasing = true;
 			// weekThing.updateHitbox();
+
+			curWeekIcon = curWeek;
 
 			// Needs an offset thingie
 			if (!weekUnlocked[i])
